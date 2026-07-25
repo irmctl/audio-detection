@@ -1,0 +1,41 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# large datasets / local caches
+data/for-2sec/
+data/for-2sec.tar.gz
+data/manifest.json
+data/eval/
+data/models/
+results/*.log
+!results/**/*.json
+
+# model weights / audio dumps
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.wav
+*.flac
+*.tar.gz
+*.tar.bz2
+
+.cache/
+huggingface/
+.hf/
+*.egg-info/
+
+.DS_Store
+Thumbs.db
+
+# OS / IDE
+.idea/
+.vscode/

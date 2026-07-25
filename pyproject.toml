@@ -1,0 +1,35 @@
+[project]
+name = "audio-deepfake-probe"
+version = "0.1.0"
+description = "Linear probing baselines for real vs AI-generated audio (FoR for-2sec)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.14.0",
+    "datasets>=5.0.0",
+    "gdown>=6.1.0",
+    "hf-transfer>=0.1.9",
+    "huggingface-hub>=1.24.0",
+    "librosa>=0.11.0",
+    "numpy>=2.4.6",
+    "onnxruntime>=1.28.0",
+    "protobuf>=7.35.1",
+    "scikit-learn>=1.9.0",
+    "sentencepiece>=0.2.2",
+    "soundfile>=0.14.0",
+    "torch>=2.13.0",
+    "torchaudio>=2.11.0",
+    "torchcodec>=0.15.0",
+    "tqdm>=4.69.1",
+    "transformers>=5.14.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/audio_probe"]
+
+[tool.uv]
+package = true

@@ -1,0 +1,55 @@
+{
+  "dataset": "fakeavceleb",
+  "model": "aasist",
+  "status": "ok",
+  "seed": 42,
+  "n_train": 350,
+  "n_val": 74,
+  "n_test": 76,
+  "feature_dim": 2,
+  "elapsed_sec": 35.7,
+  "metrics": {
+    "val": {
+      "accuracy": 0.6081081081081081,
+      "f1": 0.5915492957746479,
+      "precision": 0.6176470588235294,
+      "recall": 0.5675675675675675,
+      "roc_auc": 0.6654492330168006,
+      "per_class": {
+        "real": {
+          "precision": 0.6,
+          "recall": 0.6486486486486487,
+          "f1-score": 0.6233766233766234,
+          "support": 37.0
+        },
+        "fake": {
+          "precision": 0.6176470588235294,
+          "recall": 0.5675675675675675,
+          "f1-score": 0.5915492957746479,
+          "support": 37.0
+        }
+      }
+    },
+    "test": {
+      "accuracy": 0.75,
+      "f1": 0.759493670886076,
+      "precision": 0.7317073170731707,
+      "recall": 0.7894736842105263,
+      "roc_auc": 0.8469529085872576,
+      "per_class": {
+        "real": {
+          "precision": 0.7714285714285715,
+          "recall": 0.7105263157894737,
+          "f1-score": 0.7397260273972602,
+          "support": 38.0
+        },
+        "fake": {
+          "precision": 0.7317073170731707,
+          "recall": 0.7894736842105263,
+          "f1-score": 0.759493670886076,
+          "support": 38.0
+        }
+      }
+    }
+  }
+}

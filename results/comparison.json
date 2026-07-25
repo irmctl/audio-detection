@@ -1,0 +1,105 @@
+{
+  "dataset": "for-2sec",
+  "selection_rule": "highest test roc_auc, then f1",
+  "experiments": [
+    {
+      "experiment": "whisper_mfcc_linear",
+      "model": "openai/whisper-base",
+      "val": {
+        "accuracy": 0.9950460014154282,
+        "f1": 0.995053003533569,
+        "precision": 0.9936485532815809,
+        "recall": 0.9964614295824487,
+        "roc_auc": 0.9995675080600771,
+        "per_class": {
+          "real": {
+            "precision": 0.9964513839602555,
+            "recall": 0.9936305732484076,
+            "f1-score": 0.9950389794472005,
+            "support": 1413.0
+          },
+          "fake": {
+            "precision": 0.9936485532815809,
+            "recall": 0.9964614295824487,
+            "f1-score": 0.995053003533569,
+            "support": 1413.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.8354779411764706,
+        "f1": 0.8243375858684985,
+        "precision": 0.8842105263157894,
+        "recall": 0.7720588235294118,
+        "roc_auc": 0.9216756325692043,
+        "per_class": {
+          "real": {
+            "precision": 0.797716150081566,
+            "recall": 0.8988970588235294,
+            "f1-score": 0.8452895419187554,
+            "support": 544.0
+          },
+          "fake": {
+            "precision": 0.8842105263157894,
+            "recall": 0.7720588235294118,
+            "f1-score": 0.8243375858684985,
+            "support": 544.0
+          }
+        }
+      }
+    },
+    {
+      "experiment": "wav2vec2_linear",
+      "model": "facebook/wav2vec2-base",
+      "val": {
+        "accuracy": 0.9961075725406936,
+        "f1": 0.9961089494163424,
+        "precision": 0.9957567185289957,
+        "recall": 0.9964614295824487,
+        "roc_auc": 0.9991265015133461,
+        "per_class": {
+          "real": {
+            "precision": 0.9964589235127479,
+            "recall": 0.9957537154989384,
+            "f1-score": 0.9961061946902655,
+            "support": 1413.0
+          },
+          "fake": {
+            "precision": 0.9957567185289957,
+            "recall": 0.9964614295824487,
+            "f1-score": 0.9961089494163424,
+            "support": 1413.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.6994485294117647,
+        "f1": 0.5855513307984791,
+        "precision": 0.9428571428571428,
+        "recall": 0.42463235294117646,
+        "roc_auc": 0.7821556012110726,
+        "per_class": {
+          "real": {
+            "precision": 0.6287069988137604,
+            "recall": 0.9742647058823529,
+            "f1-score": 0.7642393655371305,
+            "support": 544.0
+          },
+          "fake": {
+            "precision": 0.9428571428571428,
+            "recall": 0.42463235294117646,
+            "f1-score": 0.5855513307984791,
+            "support": 544.0
+          }
+        }
+      }
+    }
+  ],
+  "recommended": {
+    "experiment": "whisper_mfcc_linear",
+    "model": "openai/whisper-base",
+    "test_roc_auc": 0.9216756325692043,
+    "test_f1": 0.8243375858684985,
+    "test_accuracy": 0.8354779411764706
+  }
+}
