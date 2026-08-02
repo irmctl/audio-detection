@@ -32,5 +32,3 @@ uv run python scripts/run_multi_eval.py --models qwen2_audio
 ```
 
 Çıktı: `results/multi/{dataset}__{model}.json` + `results/multi/summary.json`
-
-##
