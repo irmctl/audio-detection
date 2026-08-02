@@ -12,6 +12,8 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 
+SCALAR_METRIC_KEYS = ("accuracy", "f1", "precision", "recall", "roc_auc")
+
 
 def compute_metrics(
     y_true: np.ndarray,
@@ -43,3 +45,19 @@ def compute_metrics(
             "fake": report["fake"],
         },
     }
+
+
+def aggregate_cv_metrics(fold_metrics: list[dict[str, Any]]) -> dict[str, Any]:
+    """Mean / std of scalar metrics across CV folds."""
+    mean: dict[str, float | None] = {}
+    std: dict[str, float | None] = {}
+    for key in SCALAR_METRIC_KEYS:
+        vals = [m[key] for m in fold_metrics if m.get(key) is not None]
+        if not vals:
+            mean[key] = None
+            std[key] = None
+            continue
+        arr = np.asarray(vals, dtype=np.float64)
+        mean[key] = float(arr.mean())
+        std[key] = float(arr.std(ddof=1)) if len(arr) > 1 else 0.0
+    return {"mean": mean, "std": std}

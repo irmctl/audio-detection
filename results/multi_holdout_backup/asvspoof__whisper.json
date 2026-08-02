@@ -1,0 +1,55 @@
+{
+  "dataset": "asvspoof",
+  "model": "whisper",
+  "status": "ok",
+  "seed": 42,
+  "n_train": 350,
+  "n_val": 74,
+  "n_test": 76,
+  "feature_dim": 512,
+  "elapsed_sec": 117.1,
+  "metrics": {
+    "val": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "per_class": {
+        "real": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 37.0
+        },
+        "fake": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 37.0
+        }
+      }
+    },
+    "test": {
+      "accuracy": 0.9605263157894737,
+      "f1": 0.9620253164556962,
+      "precision": 0.926829268292683,
+      "recall": 1.0,
+      "roc_auc": 0.9861495844875346,
+      "per_class": {
+        "real": {
+          "precision": 1.0,
+          "recall": 0.9210526315789473,
+          "f1-score": 0.958904109589041,
+          "support": 38.0
+        },
+        "fake": {
+          "precision": 0.926829268292683,
+          "recall": 1.0,
+          "f1-score": 0.9620253164556962,
+          "support": 38.0
+        }
+      }
+    }
+  }
+}

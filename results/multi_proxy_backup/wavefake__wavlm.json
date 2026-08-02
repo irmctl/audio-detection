@@ -1,0 +1,152 @@
+{
+  "dataset": "wavefake",
+  "model": "wavlm",
+  "status": "ok",
+  "protocol": "5-fold_stratified_cv",
+  "seed": 42,
+  "n_samples": 500,
+  "feature_dim": 768,
+  "elapsed_sec": 10.9,
+  "metrics": {
+    "cv": {
+      "n_splits": 5,
+      "seed": 42,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.92,
+          "f1": 0.9245283018867925,
+          "precision": 0.875,
+          "recall": 0.98,
+          "roc_auc": 0.9916,
+          "per_class": {
+            "real": {
+              "precision": 0.9772727272727273,
+              "recall": 0.86,
+              "f1-score": 0.9148936170212766,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.875,
+              "recall": 0.98,
+              "f1-score": 0.9245283018867925,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.94,
+          "f1": 0.9411764705882353,
+          "precision": 0.9230769230769231,
+          "recall": 0.96,
+          "roc_auc": 0.9948,
+          "per_class": {
+            "real": {
+              "precision": 0.9583333333333334,
+              "recall": 0.92,
+              "f1-score": 0.9387755102040817,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.9230769230769231,
+              "recall": 0.96,
+              "f1-score": 0.9411764705882353,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.95,
+          "f1": 0.9494949494949495,
+          "precision": 0.9591836734693877,
+          "recall": 0.94,
+          "roc_auc": 0.996,
+          "per_class": {
+            "real": {
+              "precision": 0.9411764705882353,
+              "recall": 0.96,
+              "f1-score": 0.9504950495049505,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.9591836734693877,
+              "recall": 0.94,
+              "f1-score": 0.9494949494949495,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 3,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.96,
+          "f1": 0.9607843137254902,
+          "precision": 0.9423076923076923,
+          "recall": 0.98,
+          "roc_auc": 0.9888,
+          "per_class": {
+            "real": {
+              "precision": 0.9791666666666666,
+              "recall": 0.94,
+              "f1-score": 0.9591836734693877,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.9423076923076923,
+              "recall": 0.98,
+              "f1-score": 0.9607843137254902,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 4,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.96,
+          "f1": 0.96,
+          "precision": 0.96,
+          "recall": 0.96,
+          "roc_auc": 0.9967999999999999,
+          "per_class": {
+            "real": {
+              "precision": 0.96,
+              "recall": 0.96,
+              "f1-score": 0.96,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.96,
+              "recall": 0.96,
+              "f1-score": 0.96,
+              "support": 50.0
+            }
+          }
+        }
+      ],
+      "mean": {
+        "accuracy": 0.946,
+        "f1": 0.9471968071390936,
+        "precision": 0.9319136577708006,
+        "recall": 0.9640000000000001,
+        "roc_auc": 0.9936
+      },
+      "std": {
+        "accuracy": 0.01673320053068148,
+        "f1": 0.015032707037622323,
+        "precision": 0.035205768884064945,
+        "recall": 0.016733200530681523,
+        "roc_auc": 0.0033346664001065824
+      }
+    }
+  }
+}

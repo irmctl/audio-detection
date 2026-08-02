@@ -1,0 +1,152 @@
+{
+  "dataset": "wavefake",
+  "model": "qwen2_audio",
+  "status": "ok",
+  "protocol": "5-fold_stratified_cv",
+  "seed": 42,
+  "n_samples": 500,
+  "feature_dim": 4096,
+  "elapsed_sec": 385.0,
+  "metrics": {
+    "cv": {
+      "n_splits": 5,
+      "seed": 42,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.84,
+          "f1": 0.8545454545454545,
+          "precision": 0.7833333333333333,
+          "recall": 0.94,
+          "roc_auc": 0.892,
+          "per_class": {
+            "real": {
+              "precision": 0.925,
+              "recall": 0.74,
+              "f1-score": 0.8222222222222222,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.7833333333333333,
+              "recall": 0.94,
+              "f1-score": 0.8545454545454545,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.87,
+          "f1": 0.8761904761904762,
+          "precision": 0.8363636363636363,
+          "recall": 0.92,
+          "roc_auc": 0.922,
+          "per_class": {
+            "real": {
+              "precision": 0.9111111111111111,
+              "recall": 0.82,
+              "f1-score": 0.8631578947368421,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.8363636363636363,
+              "recall": 0.92,
+              "f1-score": 0.8761904761904762,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.83,
+          "f1": 0.8468468468468469,
+          "precision": 0.7704918032786885,
+          "recall": 0.94,
+          "roc_auc": 0.8796,
+          "per_class": {
+            "real": {
+              "precision": 0.9230769230769231,
+              "recall": 0.72,
+              "f1-score": 0.8089887640449438,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.7704918032786885,
+              "recall": 0.94,
+              "f1-score": 0.8468468468468469,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 3,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.85,
+          "f1": 0.8648648648648649,
+          "precision": 0.7868852459016393,
+          "recall": 0.96,
+          "roc_auc": 0.8988,
+          "per_class": {
+            "real": {
+              "precision": 0.9487179487179487,
+              "recall": 0.74,
+              "f1-score": 0.8314606741573034,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.7868852459016393,
+              "recall": 0.96,
+              "f1-score": 0.8648648648648649,
+              "support": 50.0
+            }
+          }
+        },
+        {
+          "fold": 4,
+          "n_train": 400,
+          "n_test": 100,
+          "accuracy": 0.82,
+          "f1": 0.8363636363636363,
+          "precision": 0.7666666666666667,
+          "recall": 0.92,
+          "roc_auc": 0.8864,
+          "per_class": {
+            "real": {
+              "precision": 0.9,
+              "recall": 0.72,
+              "f1-score": 0.8,
+              "support": 50.0
+            },
+            "fake": {
+              "precision": 0.7666666666666667,
+              "recall": 0.92,
+              "f1-score": 0.8363636363636363,
+              "support": 50.0
+            }
+          }
+        }
+      ],
+      "mean": {
+        "accuracy": 0.842,
+        "f1": 0.8557622557622556,
+        "precision": 0.7887481371087928,
+        "recall": 0.9359999999999999,
+        "roc_auc": 0.8957599999999999
+      },
+      "std": {
+        "accuracy": 0.01923538406167136,
+        "f1": 0.015471273689014116,
+        "precision": 0.027932558487664183,
+        "recall": 0.01673320053068147,
+        "roc_auc": 0.016283979857516416
+      }
+    }
+  }
+}
