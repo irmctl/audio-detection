@@ -1,0 +1,121 @@
+{
+  "section": "4. Ses Analizi Testleri",
+  "protocol": "5-fold_stratified_cv",
+  "metrics": [
+    "Accuracy",
+    "Precision",
+    "Recall",
+    "F1",
+    "AUC-ROC"
+  ],
+  "rows": [
+    {
+      "Model": "AASIST",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.948,
+      "Precision": 0.9666,
+      "Recall": 0.928,
+      "F1": 0.9465,
+      "AUC-ROC": 0.9937
+    },
+    {
+      "Model": "AASIST",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.694,
+      "Precision": 0.7008,
+      "Recall": 0.692,
+      "F1": 0.6941,
+      "AUC-ROC": 0.7764
+    },
+    {
+      "Model": "AASIST",
+      "Dataset": "FakeAVCeleb",
+      "Accuracy": 0.692,
+      "Precision": 0.6908,
+      "Recall": 0.692,
+      "F1": 0.6908,
+      "AUC-ROC": 0.7695
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.946,
+      "Precision": 0.9556,
+      "Recall": 0.936,
+      "F1": 0.9454,
+      "AUC-ROC": 0.9852
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.984,
+      "Precision": 0.9764,
+      "Recall": 0.992,
+      "F1": 0.9841,
+      "AUC-ROC": 0.999
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "FakeAVCeleb",
+      "Accuracy": 0.996,
+      "Precision": 0.9961,
+      "Recall": 0.996,
+      "F1": 0.996,
+      "AUC-ROC": 0.9996
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.952,
+      "Precision": 0.9632,
+      "Recall": 0.94,
+      "F1": 0.9514,
+      "AUC-ROC": 0.9814
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.946,
+      "Precision": 0.9319,
+      "Recall": 0.964,
+      "F1": 0.9472,
+      "AUC-ROC": 0.9936
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "FakeAVCeleb",
+      "Accuracy": 0.988,
+      "Precision": 0.9842,
+      "Recall": 0.992,
+      "F1": 0.9881,
+      "AUC-ROC": 0.9991
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.958,
+      "Precision": 0.9714,
+      "Recall": 0.944,
+      "F1": 0.9574,
+      "AUC-ROC": 0.9905
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.95,
+      "Precision": 0.954,
+      "Recall": 0.948,
+      "F1": 0.9502,
+      "AUC-ROC": 0.9907
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "FakeAVCeleb",
+      "Accuracy": 0.996,
+      "Precision": 0.9922,
+      "Recall": 1.0,
+      "F1": 0.996,
+      "AUC-ROC": 0.9999
+    }
+  ]
+}

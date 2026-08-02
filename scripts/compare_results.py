@@ -12,6 +12,36 @@ def load(path: Path) -> dict:
         return json.load(f)
 
 
+def pick_scores(exp: dict) -> dict:
+    """Normalize CV or hold-out metrics for comparison."""
+    metrics = exp.get("metrics", {})
+    if "cv" in metrics:
+        cv = metrics["cv"]
+        return {
+            "experiment": exp["experiment"],
+            "model": exp["model"],
+            "protocol": exp.get("protocol", "cv"),
+            "cv": {
+                "mean": cv["mean"],
+                "std": cv["std"],
+                "n_splits": cv.get("n_splits"),
+            },
+            "score_roc_auc": cv["mean"].get("roc_auc"),
+            "score_f1": cv["mean"].get("f1"),
+            "score_accuracy": cv["mean"].get("accuracy"),
+        }
+    return {
+        "experiment": exp["experiment"],
+        "model": exp["model"],
+        "protocol": exp.get("protocol", "holdout"),
+        "val": metrics.get("val"),
+        "test": metrics.get("test"),
+        "score_roc_auc": (metrics.get("test") or {}).get("roc_auc"),
+        "score_f1": (metrics.get("test") or {}).get("f1"),
+        "score_accuracy": (metrics.get("test") or {}).get("accuracy"),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Compare probe JSON results")
     parser.add_argument(
@@ -34,33 +64,26 @@ def main() -> None:
     w = load(args.whisper)
     v = load(args.wav2vec2)
 
-    def pick(exp: dict) -> dict:
-        return {
-            "experiment": exp["experiment"],
-            "model": exp["model"],
-            "val": exp["metrics"]["val"],
-            "test": exp["metrics"]["test"],
-        }
-
-    rows = [pick(w), pick(v)]
+    rows = [pick_scores(w), pick_scores(v)]
     best = max(
         rows,
         key=lambda r: (
-            r["test"].get("roc_auc") or 0.0,
-            r["test"].get("f1") or 0.0,
+            r.get("score_roc_auc") or 0.0,
+            r.get("score_f1") or 0.0,
         ),
     )
 
     payload = {
         "dataset": "for-2sec",
-        "selection_rule": "highest test roc_auc, then f1",
+        "selection_rule": "highest CV mean (or test) roc_auc, then f1",
         "experiments": rows,
         "recommended": {
             "experiment": best["experiment"],
             "model": best["model"],
-            "test_roc_auc": best["test"].get("roc_auc"),
-            "test_f1": best["test"].get("f1"),
-            "test_accuracy": best["test"].get("accuracy"),
+            "protocol": best.get("protocol"),
+            "roc_auc": best.get("score_roc_auc"),
+            "f1": best.get("score_f1"),
+            "accuracy": best.get("score_accuracy"),
         },
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

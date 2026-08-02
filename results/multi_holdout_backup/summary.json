@@ -1,0 +1,155 @@
+{
+  "protocol": "linear_probe",
+  "n_per_dataset": 500,
+  "models": [
+    "whisper",
+    "wav2vec2",
+    "wavlm",
+    "aasist",
+    "qwen2_audio"
+  ],
+  "datasets": [
+    "asvspoof",
+    "wavefake",
+    "fakeavceleb"
+  ],
+  "results": [
+    {
+      "dataset": "asvspoof",
+      "model": "whisper",
+      "status": "ok",
+      "test_accuracy": 0.9605263157894737,
+      "test_f1": 0.9620253164556962,
+      "test_roc_auc": 0.9861495844875346,
+      "elapsed_sec": 117.1
+    },
+    {
+      "dataset": "asvspoof",
+      "model": "wav2vec2",
+      "status": "ok",
+      "test_accuracy": 0.9473684210526315,
+      "test_f1": 0.9459459459459459,
+      "test_roc_auc": 0.9587950138504155,
+      "elapsed_sec": 67.3
+    },
+    {
+      "dataset": "asvspoof",
+      "model": "wavlm",
+      "status": "ok",
+      "test_accuracy": 0.9342105263157895,
+      "test_f1": 0.935064935064935,
+      "test_roc_auc": 0.9553324099722992,
+      "elapsed_sec": 121.7
+    },
+    {
+      "dataset": "asvspoof",
+      "model": "aasist",
+      "status": "ok",
+      "test_accuracy": 0.9210526315789473,
+      "test_f1": 0.9210526315789473,
+      "test_roc_auc": 0.9882271468144044,
+      "elapsed_sec": 40.0
+    },
+    {
+      "dataset": "wavefake",
+      "model": "whisper",
+      "status": "ok",
+      "test_accuracy": 0.9736842105263158,
+      "test_f1": 0.9736842105263158,
+      "test_roc_auc": 0.997229916897507,
+      "elapsed_sec": 144.4
+    },
+    {
+      "dataset": "wavefake",
+      "model": "wav2vec2",
+      "status": "ok",
+      "test_accuracy": 0.9736842105263158,
+      "test_f1": 0.9736842105263158,
+      "test_roc_auc": 0.9986149584487535,
+      "elapsed_sec": 52.3
+    },
+    {
+      "dataset": "wavefake",
+      "model": "wavlm",
+      "status": "ok",
+      "test_accuracy": 0.9473684210526315,
+      "test_f1": 0.9473684210526315,
+      "test_roc_auc": 0.9854570637119113,
+      "elapsed_sec": 47.2
+    },
+    {
+      "dataset": "wavefake",
+      "model": "aasist",
+      "status": "ok",
+      "test_accuracy": 0.6710526315789473,
+      "test_f1": 0.6753246753246753,
+      "test_roc_auc": 0.7770083102493075,
+      "elapsed_sec": 40.6
+    },
+    {
+      "dataset": "fakeavceleb",
+      "model": "whisper",
+      "status": "ok",
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "test_roc_auc": 1.0,
+      "elapsed_sec": 127.2
+    },
+    {
+      "dataset": "fakeavceleb",
+      "model": "wav2vec2",
+      "status": "ok",
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "test_roc_auc": 1.0,
+      "elapsed_sec": 44.2
+    },
+    {
+      "dataset": "fakeavceleb",
+      "model": "wavlm",
+      "status": "ok",
+      "test_accuracy": 0.9868421052631579,
+      "test_f1": 0.987012987012987,
+      "test_roc_auc": 1.0,
+      "elapsed_sec": 43.6
+    },
+    {
+      "dataset": "fakeavceleb",
+      "model": "aasist",
+      "status": "ok",
+      "test_accuracy": 0.75,
+      "test_f1": 0.759493670886076,
+      "test_roc_auc": 0.8469529085872576,
+      "elapsed_sec": 35.7
+    }
+  ],
+  "best_per_dataset": {
+    "asvspoof": {
+      "dataset": "asvspoof",
+      "model": "aasist",
+      "status": "ok",
+      "test_accuracy": 0.9210526315789473,
+      "test_f1": 0.9210526315789473,
+      "test_roc_auc": 0.9882271468144044,
+      "elapsed_sec": 40.0
+    },
+    "wavefake": {
+      "dataset": "wavefake",
+      "model": "wav2vec2",
+      "status": "ok",
+      "test_accuracy": 0.9736842105263158,
+      "test_f1": 0.9736842105263158,
+      "test_roc_auc": 0.9986149584487535,
+      "elapsed_sec": 52.3
+    },
+    "fakeavceleb": {
+      "dataset": "fakeavceleb",
+      "model": "whisper",
+      "status": "ok",
+      "test_accuracy": 1.0,
+      "test_f1": 1.0,
+      "test_roc_auc": 1.0,
+      "elapsed_sec": 127.2
+    }
+  }
+}

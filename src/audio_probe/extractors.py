@@ -10,6 +10,16 @@ import torch
 from huggingface_hub import hf_hub_download
 
 
+def resolve_device(device: str | None = None) -> torch.device:
+    if device:
+        return torch.device(device)
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if getattr(torch.backends, "mps", None) and torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
+
+
 class FeatureExtractor(Protocol):
     name: str
 
@@ -22,7 +32,7 @@ class WhisperExtractor:
     def __init__(self, model_id: str = "openai/whisper-base", device: str | None = None):
         from transformers import WhisperModel, WhisperProcessor
 
-        self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        self.device = resolve_device(device)
         self.processor = WhisperProcessor.from_pretrained(model_id)
         self.model = WhisperModel.from_pretrained(model_id).to(self.device)
         self.model.eval()
@@ -43,7 +53,7 @@ class Wav2Vec2Extractor:
     def __init__(self, model_id: str = "facebook/wav2vec2-base", device: str | None = None):
         from transformers import Wav2Vec2Model, Wav2Vec2Processor
 
-        self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        self.device = resolve_device(device)
         self.processor = Wav2Vec2Processor.from_pretrained(model_id)
         self.model = Wav2Vec2Model.from_pretrained(model_id).to(self.device)
         self.model.eval()
@@ -64,7 +74,7 @@ class WavLMExtractor:
     def __init__(self, model_id: str = "microsoft/wavlm-base", device: str | None = None):
         from transformers import WavLMModel, AutoFeatureExtractor
 
-        self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        self.device = resolve_device(device)
         self.processor = AutoFeatureExtractor.from_pretrained(model_id)
         self.model = WavLMModel.from_pretrained(model_id).to(self.device)
         self.model.eval()
@@ -146,17 +156,21 @@ class Qwen2AudioExtractor:
             model_id = str(local.resolve())
             print(f"Using local Qwen path: {model_id}")
 
-        self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        self.device = resolve_device(device)
         self.processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True)
-        kwargs = {"trust_remote_code": True}
-        if self.device.type == "cpu":
-            kwargs["torch_dtype"] = torch.float32
-            kwargs["low_cpu_mem_usage"] = True
-        else:
+        kwargs: dict = {"trust_remote_code": True, "low_cpu_mem_usage": True}
+        if self.device.type == "cuda":
             kwargs["torch_dtype"] = torch.float16
             kwargs["device_map"] = "auto"
-        self.model = Qwen2AudioForConditionalGeneration.from_pretrained(model_id, **kwargs)
-        if self.device.type == "cpu":
+            self.model = Qwen2AudioForConditionalGeneration.from_pretrained(model_id, **kwargs)
+        elif self.device.type == "mps":
+            # MPS: no device_map; float16 is usually fine on Apple Silicon.
+            kwargs["torch_dtype"] = torch.float16
+            self.model = Qwen2AudioForConditionalGeneration.from_pretrained(model_id, **kwargs)
+            self.model.to(self.device)
+        else:
+            kwargs["torch_dtype"] = torch.float32
+            self.model = Qwen2AudioForConditionalGeneration.from_pretrained(model_id, **kwargs)
             self.model.to(self.device)
         self.model.eval()
         for p in self.model.parameters():

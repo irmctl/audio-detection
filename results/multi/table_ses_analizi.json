@@ -1,0 +1,147 @@
+{
+  "protocol": "5-fold_stratified_cv",
+  "metrics": [
+    "Accuracy",
+    "Precision",
+    "Recall",
+    "F1",
+    "AUC-ROC"
+  ],
+  "rows": [
+    {
+      "Model": "AASIST",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.948,
+      "Precision": 0.9666,
+      "Recall": 0.928,
+      "F1": 0.9465,
+      "AUC-ROC": 0.9937
+    },
+    {
+      "Model": "AASIST",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.582,
+      "Precision": 0.574,
+      "Recall": 0.632,
+      "F1": 0.6012,
+      "AUC-ROC": 0.6306
+    },
+    {
+      "Model": "AASIST",
+      "Dataset": "FoR",
+      "Accuracy": 0.742,
+      "Precision": 0.7374,
+      "Recall": 0.76,
+      "F1": 0.7471,
+      "AUC-ROC": 0.8147
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.946,
+      "Precision": 0.9556,
+      "Recall": 0.936,
+      "F1": 0.9454,
+      "AUC-ROC": 0.9852
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.952,
+      "Precision": 0.9281,
+      "Recall": 0.98,
+      "F1": 0.9533,
+      "AUC-ROC": 0.9923
+    },
+    {
+      "Model": "Wav2Vec2",
+      "Dataset": "FoR",
+      "Accuracy": 0.978,
+      "Precision": 0.9689,
+      "Recall": 0.988,
+      "F1": 0.9783,
+      "AUC-ROC": 0.9974
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.952,
+      "Precision": 0.9632,
+      "Recall": 0.94,
+      "F1": 0.9514,
+      "AUC-ROC": 0.9814
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.934,
+      "Precision": 0.8845,
+      "Recall": 1.0,
+      "F1": 0.9384,
+      "AUC-ROC": 0.9781
+    },
+    {
+      "Model": "WavLM",
+      "Dataset": "FoR",
+      "Accuracy": 0.938,
+      "Precision": 0.9299,
+      "Recall": 0.948,
+      "F1": 0.9385,
+      "AUC-ROC": 0.9855
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.958,
+      "Precision": 0.9714,
+      "Recall": 0.944,
+      "F1": 0.9574,
+      "AUC-ROC": 0.9905
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.908,
+      "Precision": 0.8639,
+      "Recall": 0.972,
+      "F1": 0.9142,
+      "AUC-ROC": 0.9796
+    },
+    {
+      "Model": "Whisper",
+      "Dataset": "FoR",
+      "Accuracy": 0.95,
+      "Precision": 0.9566,
+      "Recall": 0.944,
+      "F1": 0.9499,
+      "AUC-ROC": 0.9882
+    },
+    {
+      "Model": "Qwen2-Audio",
+      "Dataset": "ASVspoof",
+      "Accuracy": 0.982,
+      "Precision": 0.992,
+      "Recall": 0.972,
+      "F1": 0.9818,
+      "AUC-ROC": 0.997
+    },
+    {
+      "Model": "Qwen2-Audio",
+      "Dataset": "WaveFake",
+      "Accuracy": 0.842,
+      "Precision": 0.7887,
+      "Recall": 0.936,
+      "F1": 0.8558,
+      "AUC-ROC": 0.8958
+    },
+    {
+      "Model": "Qwen2-Audio",
+      "Dataset": "FoR",
+      "Accuracy": 0.966,
+      "Precision": 0.9832,
+      "Recall": 0.948,
+      "F1": 0.9651,
+      "AUC-ROC": 0.994
+    }
+  ]
+}
